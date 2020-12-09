@@ -7,12 +7,10 @@ import (
 	"strings"
 )
 
-type Solver struct {
-	input string
-}
+type Solver struct{}
 
-func New(input string) *Solver {
-	return &Solver{input: input}
+func New() *Solver {
+	return &Solver{}
 }
 
 // --- Day 2: I Was Told There Would Be No Math ---
@@ -78,8 +76,8 @@ func parse(input string) []box {
 	return boxes
 }
 
-func (s *Solver) SolveA() string {
-	boxes := parse(s.input)
+func (s *Solver) SolveA(input string) string {
+	boxes := parse(input)
 	var total int64 = 0
 	for _, b := range boxes {
 		total += b.Area() + b.SmallestSideArea()
@@ -87,8 +85,8 @@ func (s *Solver) SolveA() string {
 	return fmt.Sprint(total)
 }
 
-func (s *Solver) SolveB() string {
-	boxes := parse(s.input)
+func (s *Solver) SolveB(input string) string {
+	boxes := parse(input)
 	var total int64 = 0
 	for _, b := range boxes {
 		total += b.Volume() + b.SmallestSidePerimeter()

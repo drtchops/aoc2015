@@ -5,17 +5,15 @@ import (
 	"strings"
 )
 
-type Solver struct {
-	input string
+type Solver struct{}
+
+func New() *Solver {
+	return &Solver{}
 }
 
-func New(input string) *Solver {
-	return &Solver{input: input}
-}
-
-func (s *Solver) SolveA() string {
+func (s *Solver) SolveA(input string) string {
 	vowels := []rune{'a', 'e', 'i', 'o', 'u'}
-	words := strings.Split(s.input, "\n")
+	words := strings.Split(input, "\n")
 	nice := 0
 
 	for _, word := range words {
@@ -47,8 +45,8 @@ func (s *Solver) SolveA() string {
 	return fmt.Sprint(nice)
 }
 
-func (s *Solver) SolveB() string {
-	words := strings.Split(s.input, "\n")
+func (s *Solver) SolveB(input string) string {
+	words := strings.Split(input, "\n")
 	nice := 0
 
 	for _, word := range words {

@@ -5,12 +5,10 @@ import (
 	"strings"
 )
 
-type Solver struct {
-	input string
-}
+type Solver struct{}
 
-func New(input string) *Solver {
-	return &Solver{input: input}
+func New() *Solver {
+	return &Solver{}
 }
 
 // --- Day 1: Not Quite Lisp ---
@@ -48,8 +46,8 @@ func New(input string) *Solver {
 
 // Your puzzle answer was 1783.
 
-func (s *Solver) SolveA() string {
-	directions := strings.Split(s.input, "")
+func (s *Solver) SolveA(input string) string {
+	directions := strings.Split(input, "")
 	floor := 0
 	for _, dir := range directions {
 		if dir == "(" {
@@ -61,8 +59,8 @@ func (s *Solver) SolveA() string {
 	return fmt.Sprint(floor)
 }
 
-func (s *Solver) SolveB() string {
-	directions := strings.Split(s.input, "")
+func (s *Solver) SolveB(input string) string {
+	directions := strings.Split(input, "")
 	floor := 0
 	for i, dir := range directions {
 		if dir == "(" {

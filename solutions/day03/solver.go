@@ -5,12 +5,10 @@ import (
 	"strings"
 )
 
-type Solver struct {
-	input string
-}
+type Solver struct{}
 
-func New(input string) *Solver {
-	return &Solver{input: input}
+func New() *Solver {
+	return &Solver{}
 }
 
 // --- Day 3: Perfectly Spherical Houses in a Vacuum ---
@@ -46,8 +44,8 @@ func move(pos point, dir string) point {
 	return pos
 }
 
-func (s *Solver) SolveA() string {
-	moves := strings.Split(s.input, "")
+func (s *Solver) SolveA(input string) string {
+	moves := strings.Split(input, "")
 	pos := point{0, 0}
 	visited := map[point]int64{pos: 1}
 
@@ -59,8 +57,8 @@ func (s *Solver) SolveA() string {
 	return fmt.Sprint(len(visited))
 }
 
-func (s *Solver) SolveB() string {
-	moves := strings.Split(s.input, "")
+func (s *Solver) SolveB(input string) string {
+	moves := strings.Split(input, "")
 	santaPos := point{0, 0}
 	roboPos := point{0, 0}
 	visited := map[point]int64{santaPos: 2}

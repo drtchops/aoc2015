@@ -5,12 +5,10 @@ import (
 	"fmt"
 )
 
-type Solver struct {
-	input string
-}
+type Solver struct{}
 
-func New(input string) *Solver {
-	return &Solver{input: input}
+func New() *Solver {
+	return &Solver{}
 }
 
 func findHash(input, prefix string) int64 {
@@ -25,12 +23,12 @@ func findHash(input, prefix string) int64 {
 	}
 }
 
-func (s *Solver) SolveA() string {
-	i := findHash(s.input, "00000")
+func (s *Solver) SolveA(input string) string {
+	i := findHash(input, "00000")
 	return fmt.Sprint(i)
 }
 
-func (s *Solver) SolveB() string {
-	i := findHash(s.input, "000000")
+func (s *Solver) SolveB(input string) string {
+	i := findHash(input, "000000")
 	return fmt.Sprint(i)
 }
